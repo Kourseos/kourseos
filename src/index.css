@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #0B0F1A;
+    --surface: #161B2B;
+    --primary: #3B82F6;
+    --accent: #F59E0B;
+    --text: #F9FAFB;
+  }
+
+  body {
+    @apply bg-background text-text antialiased selection:bg-primary/30;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  .glass {
+    background: rgba(22, 27, 43, 0.6);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .glass-card {
+    @apply glass rounded-2xl p-6 transition-all duration-300 hover:border-white/15;
+  }
+
+  .surface-card {
+    background: #161B2B;
+    @apply rounded-2xl p-6 border border-white/5 transition-all duration-300 hover:border-white/10;
+  }
+
+  .nav-link {
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 text-gray-400 hover:text-text hover:bg-white/5;
+  }
+
+  .nav-link-active {
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 text-text bg-primary/10 border border-primary/30;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
+  }
+
+  .btn-primary {
+    @apply px-6 py-2.5 rounded-xl bg-primary text-white font-medium transition-all duration-200 hover:bg-primary/90 active:scale-95;
+    box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.2);
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.3);
+  }
+
+  .badge-founder {
+    background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+    @apply px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider text-white;
+    box-shadow: 0 10px 25px -5px rgba(245, 158, 11, 0.3);
+  }
+}

@@ -1,0 +1,32 @@
+[
+    {
+        "title": "Fundamentos del Posicionamiento Digital",
+        "concept": "El SEO es la visibilidad orgánica en buscadores",
+        "explanation": "El **Search Engine Optimization (SEO)** es el conjunto de técnicas para mejorar el posicionamiento de tu contenido en **Google, Bing y otros motores de búsqueda**.\n\n**¿Por qué es crucial para creadores?**\n\n- **Tráfico gratuito**: No pagas por cada visitante\n- **Autoridad a largo plazo**: Tus contenidos siguen generando visitas meses después\n- **Mayor conversión**: Las personas que llegan por búsqueda tienen alta intención\n\n**Los 3 pilares del SEO moderno:**\n\n1. **Contenido de calidad** (responde preguntas reales)\n2. **Optimización técnica** (velocidad, mobile-first)\n3. **Enlaces entrantes** (backlinks de sitios relevantes)\n\n```javascript\n// Ejemplo de meta tags optimizados\nconst metaTags = {\n  title: \"Marketing Digital para Coaches - Guía 2026\",\n  description: \"Aprende las estrategias más efectivas...\",\n  keywords: \"marketing, coaches, digital\"\n};\n```",
+        "action": "Investiga 3 palabras clave específicas para tu nicho usando Google Keyword Planner (gratis) y anota el volumen de búsqueda mensual de cada una."
+    },
+    {
+        "title": "Creación de Contenido que Convierte",
+        "concept": "El contenido debe resolver una necesidad urgente",
+        "explanation": "No basta con publicar: tu contenido debe **resolver un problema específico** que tu audiencia enfrenta **ahora mismo**.\n\n**Framework AIDA aplicado a marketing digital:**\n\n- **A**tención: Título irresistible que promete solución\n- **I**nterés: Los primeros 3 párrafos enganchan con datos o historias\n- **D**eseo: Muestras el resultado final (transformación)\n- **A**cción: CTA claro (Call To Action)\n\n**Tipos de contenido de alto impacto:**\n\n1. Guías paso a paso (How-to)\n2. Estudios de caso con resultados medibles\n3. Comparativas (\"X vs Y\")\n4. Listas (\"10 formas de...\")\n\n**Error común:** Crear contenido \"para todos\" en vez de para un avatar específico.",
+        "action": "Define tu perfil de cliente ideal (ICP) en una hoja: edad, profesión, problema principal, objeción más frecuente. Usa este perfil para tu próximo contenido."
+    },
+    {
+        "title": "Automatización con Email Marketing",
+        "concept": "Los emails automatizados venden mientras duermes",
+        "explanation": "El **email marketing** sigue siendo el canal con **mejor ROI** (retorno de inversión): por cada $1 invertido, retornas $42 en promedio.\n\n**¿Qué es una secuencia automatizada?**\n\nUna serie de correos pre-escritos que se envían automáticamente cuando alguien se suscribe a tu lista. Ejemplo:\n\n- **Día 0**: Bienvenida + regalo (lead magnet)\n- **Día 2**: Historia personal (conexión emocional)\n- **Día 4**: Contenido educativo (valor)\n- **Día 7**: Oferta suave (producto/servicio)\n- **Día 10**: Urgencia (cierre de oferta)\n\n**Herramientas recomendadas:**\n\n- **ConvertKit**: Para creadores de contenido\n- **ActiveCampaign**: Para automatizaciones complejas\n- **Mailchimp**: Para empezar gratis\n\n```python\n# Pseudocódigo de una secuencia\nif user.subscribed:\n  send_email(day=0, template=\"welcome\")\n  send_email(day=2, template=\"story\")\n  send_email(day=7, template=\"offer\")\n```",
+        "action": "Crea tu primer lead magnet (PDF gratuito, checklist o mini-curso) y configura una secuencia de 3 emails en ConvertKit o Mailchimp (ambos tienen planes gratis)."
+    },
+    {
+        "title": "Estrategia de Redes Sociales Efectiva",
+        "concept": "Prioriza una red social, no intentes estar en todas",
+        "explanation": "El error #1 de los creadores nuevos es **dispersarse en 5 plataformas distintas** sin dominar ninguna.\n\n**Regla del 80/20 en redes sociales:**\n\nEl 80% de tu atención debe ir a **UNA plataforma principal** donde ya está tu audiencia. El 20% restante puedes experimentar.\n\n**¿Cómo elegir tu plataforma?**\n\n- **LinkedIn**: B2B, coaches de negocios, consultores\n- **Instagram**: Visual, lifestyle, fitness, coaching personal\n- **YouTube**: Educación profunda, tutoriales largos\n- **TikTok**: Entretenimiento educativo, audiencia joven\n- **Twitter/X**: Noticias, tech, opinión, networking\n\n**Fórmula de contenido consistente:**\n\n1. Publica **3-5 veces por semana** (calidad > cantidad)\n2. Usa el **formato nativo** de la plataforma (Reels en IG, Shorts en YT)\n3. **Interactúa 30 minutos diarios** (responde comentarios, mensajes)\n\n**Métrica clave:** No mires seguidores, mira **engagement rate** (likes + comentarios / seguidores).",
+        "action": "Elige UNA red social para los próximos 90 días. Crea un calendario de contenido simple: 3 publicaciones por semana con temas específicos."
+    },
+    {
+        "title": "Métricas que Realmente Importan",
+        "concept": "Trackea conversiones, no vanity metrics",
+        "explanation": "**Vanity metrics** (métricas de vanidad): números que se ven bien pero no generan ingresos.\n\n**Ejemplos de vanity metrics:**\n- Total de seguidores\n- Impresiones totales\n- Likes en publicaciones\n\n**Métricas que SÍ importan (de más a menos crítico):**\n\n1. **Revenue** (ingresos totales)\n2. **Conversion Rate** (% de visitantes que compran)\n3. **Customer Acquisition Cost (CAC)** (cuánto gastas para conseguir 1 cliente)\n4. **Lifetime Value (LTV)** (cuánto gasta un cliente en su vida contigo)\n5. **Email Open Rate** (% de emails abiertos)\n6. **Click-Through Rate (CTR)** (% de clics en tus CTAs)\n\n**Regla de oro:** Si una métrica no se puede vincular directamente a ingresos, es secundaria.\n\n**Fórmula clave:**\n\n```\nLTV / CAC > 3\n\nSi tu LTV es $300 y tu CAC es $100:\n300 / 100 = 3 ✅ (Negocio sostenible)\n\nSi tu LTV es $100 y tu CAC es $150:\n100 / 150 = 0.66 ❌ (Pierdes dinero)\n```",
+        "action": "Configura Google Analytics 4 (gratis) en tu sitio web y define 1 conversión principal (ejemplo: descarga de lead magnet, compra de producto). Revisa esta métrica cada semana."
+    }
+]
