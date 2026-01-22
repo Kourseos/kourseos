@@ -122,7 +122,7 @@ const CourseCreator = () => {
                     price: parseFloat(price),
                     paymentType,
                     emailSequence: curriculum.emailSequence,
-                    advancedLanding: curriculum.advancedLanding
+                    landingPage: curriculum.landingPage
                 }),
             });
 

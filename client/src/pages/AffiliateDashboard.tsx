@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import {
     Users, Link as LinkIcon, DollarSign, TrendingUp,
     MousePointer2, Copy, CheckCircle, ExternalLink,
-    Activity
+    Activity, Plus
 } from 'lucide-react';
 
 const AffiliateDashboard = () => {

@@ -32,7 +32,7 @@ app.use('/api/withdrawals', withdrawalRoutes);
 app.use('/api/supabase', supabaseRoutes);
 
 app.get('/', (req, res) => {
-    res.send('SkillForge AI API is running');
+    res.send('Kourseos AI API is running');
 });
 
 if (!process.env.VERCEL) {
