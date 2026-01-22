@@ -1,0 +1,152 @@
+{
+  "title": "Introducción a React y Desarrollo Frontend",
+  "description": "Aprende a crear aplicaciones web dinámicas y escalables con React, uno de los frameworks más populares de JavaScript. En este curso, explorarás los fundamentos de React, desde la configuración del entorno de desarrollo hasta la creación de componentes reutilizables y la gestión de estado.",
+  "modules": [
+    {
+      "title": "Módulo 1: Fundamentos de React",
+      "lessons": [
+        {
+          "title": "Lección 1: Introducción a React",
+          "content": "\n                       # Introducción a React\n                       React es una biblioteca de JavaScript para construir interfaces de usuario. Fue creado por Facebook y es mantenido por una comunidad de desarrolladores. React se utiliza para crear componentes reutilizables de la interfaz de usuario.\n                       ## Características clave de React\n                       * **Componentes**: Los componentes son la base de cualquier aplicación React. Pueden ser funciones o clases que retornan elementos JSX.\n                       * **JSX**: JSX es una extensión de JavaScript que permite escribir HTML dentro de tu código JavaScript.\n                       * **Estado**: El estado es un objeto que contiene los datos de tu aplicación. Puedes actualizar el estado para cambiar la interfaz de usuario.\n                       * **Propiedades**: Las propiedades son valores que se pasan de un componente padre a un componente hijo.\n                       ## Instalación de React\n                       Para instalar React, necesitas tener Node.js y npm (el administrador de paquetes de Node.js) instalados en tu computadora. Puedes instalar React utilizando el comando `npx create-react-app mi-aplicacion`.\n                       ## Configuración del entorno de desarrollo\n                       Una vez que hayas instalado React, debes configurar tu entorno de desarrollo. Esto incluye configurar tu editor de código, instalar las herramientas de desarrollo necesarias y configurar tu servidor de desarrollo.\n                       "
+        },
+        {
+          "title": "Lección 2: Componentes y JSX",
+          "content": "\n                       # Componentes y JSX\n                       Los componentes son la base de cualquier aplicación React. Pueden ser funciones o clases que retornan elementos JSX.\n                       ## Tipos de componentes\n                       * **Componentes funcionales**: Los componentes funcionales son funciones que retornan elementos JSX.\n                       * **Componentes de clase**: Los componentes de clase son clases que extienden la clase `Component` de React.\n                       ## JSX\n                       JSX es una extensión de JavaScript que permite escribir HTML dentro de tu código JavaScript.\n                       ## Ejemplo de componente\n                       ```jsx\n                       import React from 'react';\n\n                       function Saludo(props) {\n                           return <h1>Hola, {props.nombre}!</h1>;\n                       }\n                       ```\n                       ## Uso de componentes\n                       Puedes utilizar componentes dentro de otros componentes para crear una jerarquía de componentes.\n                       ```jsx\n                       import React from 'react';\n                       import Saludo from './Saludo';\n\n                       function App() {\n                           return (\n                               <div>\n                                   <Saludo nombre='Juan' />\n                                   <Saludo nombre='María' />\n                               </div>\n                           );\n                       }\n                       "
+        },
+        {
+          "title": "Lección 3: Estado y propiedades",
+          "content": "\n                       # Estado y propiedades\n                       El estado es un objeto que contiene los datos de tu aplicación. Puedes actualizar el estado para cambiar la interfaz de usuario.\n                       ## Estado\n                       * **Estado local**: El estado local es un objeto que se almacena dentro de un componente.\n                       * **Estado global**: El estado global es un objeto que se almacena en un lugar centralizado y se puede acceder desde cualquier componente.\n                       ## Propiedades\n                       Las propiedades son valores que se pasan de un componente padre a un componente hijo.\n                       ## Ejemplo de estado y propiedades\n                       ```jsx\n                       import React, { useState } from 'react';\n\n                       function Contador() {\n                           const [contador, setContador] = useState(0);\n\n                           return (\n                               <div>\n                                   <p>Contador: {contador}</p>\n                                   <button onClick={() => setContador(contador + 1)}>Incrementar</button>\n                               </div>\n                           );\n                       }\n                       ```\n                       "
+        }
+      ]
+    },
+    {
+      "title": "Módulo 2: Componentes y eventos",
+      "lessons": [
+        {
+          "title": "Lección 4: Componentes reutilizables",
+          "content": "\n                       # Componentes reutilizables\n                       Los componentes reutilizables son componentes que se pueden utilizar en diferentes partes de tu aplicación.\n                       ## Ventajas de los componentes reutilizables\n                       * **Reducen la duplicidad de código**: Los componentes reutilizables te permiten evitar la duplicidad de código en tu aplicación.\n                       * **Mejoran la mantenibilidad**: Los componentes reutilizables te permiten actualizar el código en un solo lugar y que los cambios se reflejen en toda la aplicación.\n                       ## Ejemplo de componente reutilizable\n                       ```jsx\n                       import React from 'react';\n\n                       function Boton(props) {\n                           return (\n                               <button className='boton' onClick={props.onClick}>\n                                   {props.texto}\n                               </button>\n                           );\n                       }\n                       ```\n                       ## Uso de componentes reutilizables\n                       Puedes utilizar componentes reutilizables dentro de otros componentes para crear una jerarquía de componentes.\n                       ```jsx\n                       import React from 'react';\n                       import Boton from './Boton';\n\n                       function App() {\n                           return (\n                               <div>\n                                   <Boton texto='Boton 1' onClick={() => console.log('Boton 1 clickeado')} />\n                                   <Boton texto='Boton 2' onClick={() => console.log('Boton 2 clickeado')} />\n                               </div>\n                           );\n                       }\n                       "
+        },
+        {
+          "title": "Lección 5: Eventos en React",
+          "content": "\n                       # Eventos en React\n                       Los eventos en React son funciones que se ejecutan en respuesta a una acción del usuario.\n                       ## Tipos de eventos\n                       * **Eventos de mouse**: Los eventos de mouse se ejecutan cuando el usuario interactúa con el mouse.\n                       * **Eventos de teclado**: Los eventos de teclado se ejecutan cuando el usuario interactúa con el teclado.\n                       ## Ejemplo de evento\n                       ```jsx\n                       import React from 'react';\n\n                       function Boton() {\n                           function handleClick() {\n                               console.log('Boton clickeado');\n                           }\n\n                           return (\n                               <button onClick={handleClick}>Clickeame</button>\n                           );\n                       }\n                       ```\n                       ## Uso de eventos\n                       Puedes utilizar eventos para ejecutar funciones en respuesta a acciones del usuario.\n                       ```jsx\n                       import React from 'react';\n\n                       function App() {\n                           function handleMouseOver() {\n                               console.log('Mouse sobre el botón');\n                           }\n\n                           function handleMouseOut() {\n                               console.log('Mouse fuera del botón');\n                           }\n\n                           return (\n                               <button\n                                   onMouseOver={handleMouseOver}\n                                   onMouseOut={handleMouseOut}\n                               >\n                                   Clickeame\n                               </button>\n                           );\n                       }\n                       "
+        },
+        {
+          "title": "Lección 6: Manejo de formularios",
+          "content": "\n                       # Manejo de formularios\n                       Los formularios son elementos HTML que permiten a los usuarios ingresar datos.\n                       ## Tipos de formularios\n                       * **Formularios controlados**: Los formularios controlados son formularios que se manejan mediante el estado de React.\n                       * **Formularios no controlados**: Los formularios no controlados son formularios que se manejan mediante referencias.\n                       ## Ejemplo de formulario controlado\n                       ```jsx\n                       import React, { useState } from 'react';\n\n                       function Formulario() {\n                           const [nombre, setNombre] = useState('');\n                           const [apellido, setApellido] = useState('');\n\n                           function handleSubmit(event) {\n                               event.preventDefault();\n                               console.log(`Nombre: ${nombre}, Apellido: ${apellido}`);\n                           }\n\n                           return (\n                               <form onSubmit={handleSubmit}>\n                                   <label>Nombre:</label>\n                                   <input\n                                       type='text'\n                                       value={nombre}\n                                       onChange={(event) => setNombre(event.target.value)}\n                                   />\n                                   <br />\n                                   <label>Apellido:</label>\n                                   <input\n                                       type='text'\n                                       value={apellido}\n                                       onChange={(event) => setApellido(event.target.value)}\n                                   />\n                                   <br />\n                                   <button type='submit'>Enviar</button>\n                               </form>\n                           );\n                       }\n                       "
+        }
+      ],
+      "quiz": {
+        "title": "Examen",
+        "questions": [
+          {
+            "text": "¿Qué es React?",
+            "options": [
+              "Una biblioteca de JavaScript",
+              "Un framework de JavaScript",
+              "Un lenguaje de programación"
+            ],
+            "correctAnswer": 0
+          },
+          {
+            "text": "¿Qué es JSX?",
+            "options": [
+              "Una extensión de JavaScript",
+              "Un lenguaje de programación",
+              "Un framework de JavaScript"
+            ],
+            "correctAnswer": 0
+          },
+          {
+            "text": "¿Qué es un componente en React?",
+            "options": [
+              "Un elemento HTML",
+              "Un objeto que contiene datos",
+              "Una función que retorna un elemento JSX"
+            ],
+            "correctAnswer": 2
+          }
+        ]
+      }
+    },
+    {
+      "title": "Módulo 3: Estado y ciclo de vida",
+      "lessons": [
+        {
+          "title": "Lección 7: Estado y ciclo de vida",
+          "content": "\n                       # Estado y ciclo de vida\n                       El estado es un objeto que contiene los datos de tu aplicación. El ciclo de vida se refiere a las diferentes etapas que un componente pasa a lo largo de su existencia.\n                       ## Estado\n                       * **Estado local**: El estado local es un objeto que se almacena dentro de un componente.\n                       * **Estado global**: El estado global es un objeto que se almacena en un lugar centralizado y se puede acceder desde cualquier componente.\n                       ## Ciclo de vida\n                       * **Montaje**: El montaje es la etapa en la que un componente se crea y se agrega al DOM.\n                       * **Actualización**: La actualización es la etapa en la que un componente se actualiza debido a un cambio en el estado o en las propiedades.\n                       * **Desmontaje**: El desmontaje es la etapa en la que un componente se elimina del DOM.\n                       ## Ejemplo de estado y ciclo de vida\n                       ```jsx\n                       import React, { useState, useEffect } from 'react';\n\n                       function Contador() {\n                           const [contador, setContador] = useState(0);\n\n                           useEffect(() => {\n                               console.log('Componente montado');\n                           }, []);\n\n                           return (\n                               <div>\n                                   <p>Contador: {contador}</p>\n                                   <button onClick={() => setContador(contador + 1)}>Incrementar</button>\n                               </div>\n                           );\n                       }\n                       "
+        },
+        {
+          "title": "Lección 8: Uso de useEffect",
+          "content": "\n                       # Uso de useEffect\n                       `useEffect` es un hook que se utiliza para ejecutar funciones después de que un componente se haya renderizado.\n                       ## Ejemplo de uso de useEffect\n                       ```jsx\n                       import React, { useState, useEffect } from 'react';\n\n                       function Contador() {\n                           const [contador, setContador] = useState(0);\n\n                           useEffect(() => {\n                               console.log('Componente actualizado');\n                           }, [contador]);\n\n                           return (\n                               <div>\n                                   <p>Contador: {contador}</p>\n                                   <button onClick={() => setContador(contador + 1)}>Incrementar</button>\n                               </div>\n                           );\n                       }\n                       "
+        },
+        {
+          "title": "Lección 9: Uso de useContext",
+          "content": "\n                       # Uso de useContext\n                       `useContext` es un hook que se utiliza para acceder a un contexto en un componente.\n                       ## Ejemplo de uso de useContext\n                       ```jsx\n                       import React, { useState, useContext } from 'react';\n\n                       const TemaContext = React.createContext();\n\n                       function App() {\n                           const [tema, setTema] = useState('oscuro');\n\n                           return (\n                               <TemaContext.Provider value={tema}>\n                                   < Toolbar />\n                               </TemaContext.Provider>\n                           );\n                       }\n\n                       function Toolbar() {\n                           const tema = useContext(TemaContext);\n\n                           return (\n                               <div>\n                                   <p>Tema: {tema}</p>\n                               </div>\n                           );\n                       }\n                       "
+        }
+      ]
+    },
+    {
+      "title": "Módulo 4: Rutas y autenticación",
+      "lessons": [
+        {
+          "title": "Lección 10: Uso de React Router",
+          "content": "\n                       # Uso de React Router\n                       React Router es una biblioteca que se utiliza para crear rutas en una aplicación React.\n                       ## Ejemplo de uso de React Router\n                       ```jsx\n                       import React from 'react';\n                       import { BrowserRouter, Route, Link } from 'react-router-dom';\n\n                       function App() {\n                           return (\n                               <BrowserRouter>\n                                   <div>\n                                       <h1>Home</h1>\n                                       <Link to='/about'>About</Link>\n                                       <Route path='/about' component={About} />\n                                   </div>\n                               </BrowserRouter>\n                           );\n                       }\n\n                       function About() {\n                           return (\n                               <div>\n                                   <h1>About</h1>\n                               </div>\n                           );\n                       }\n                       "
+        },
+        {
+          "title": "Lección 11: Autenticación con React",
+          "content": "\n                       # Autenticación con React\n                       La autenticación es el proceso de verificar la identidad de un usuario.\n                       ## Ejemplo de autenticación con React\n                       ```jsx\n                       import React, { useState } from 'react';\n\n                       function Login() {\n                           const [usuario, setUsuario] = useState('');\n                           const [contraseña, setContraseña] = useState('');\n\n                           function handleSubmit(event) {\n                               event.preventDefault();\n                               console.log(`Usuario: ${usuario}, Contraseña: ${contraseña}`);\n                           }\n\n                           return (\n                               <form onSubmit={handleSubmit}>\n                                   <label>Usuario:</label>\n                                   <input\n                                       type='text'\n                                       value={usuario}\n                                       onChange={(event) => setUsuario(event.target.value)}\n                                   />\n                                   <br />\n                                   <label>Contraseña:</label>\n                                   <input\n                                       type='password'\n                                       value={contraseña}\n                                       onChange={(event) => setContraseña(event.target.value)}\n                                   />\n                                   <br />\n                                   <button type='submit'>Iniciar sesión</button>\n                               </form>\n                           );\n                       }\n                       "
+        },
+        {
+          "title": "Lección 12: Autorización con React",
+          "content": "\n                       # Autorización con React\n                       La autorización es el proceso de determinar qué acciones puede realizar un usuario.\n                       ## Ejemplo de autorización con React\n                       ```jsx\n                       import React, { useState } from 'react';\n\n                       function App() {\n                           const [usuario, setUsuario] = useState(null);\n\n                           function handleLogin(usuario) {\n                               setUsuario(usuario);\n                           }\n\n                           if (usuario) {\n                               return (\n                                   <div>\n                                       <h1>Bienvenido, {usuario.nombre}</h1>\n                                       <button onClick={() => handleLogin(null)}>Cerrar sesión</button>\n                                   </div>\n                               );\n                           } else {\n                               return (\n                                   <div>\n                                       <h1>Iniciar sesión</h1>\n                                       <button onClick={() => handleLogin({ nombre: 'Juan' })}>Iniciar sesión</button>\n                                   </div>\n                               );\n                           }\n                       }\n                       "
+        }
+      ]
+    }
+  ],
+  "landingPage": {
+    "h1": "Aprende React y Desarrollo Frontend",
+    "h2": "Crea aplicaciones web dinámicas y escalables con React",
+    "benefits": [
+      "Aprende a crear componentes reutilizables",
+      "Aprende a manejar el estado y el ciclo de vida de los componentes",
+      "Aprende a utilizar React Router y autenticación"
+    ],
+    "socialProof": [
+      "Más de 1000 estudiantes han tomado este curso",
+      "4.5 estrellas en reseñas"
+    ],
+    "bonuses": [
+      "Acceso a un grupo privado de Facebook para conectarte con otros estudiantes",
+      "Un conjunto de recursos adicionales para ayudarte a aprender"
+    ],
+    "offer": "¡Inscríbete ahora y comienza a aprender!",
+    "faqs": [
+      {
+        "question": "¿Qué es React?",
+        "answer": "React es una biblioteca de JavaScript para crear interfaces de usuario"
+      },
+      {
+        "question": "¿Qué aprenderé en este curso?",
+        "answer": "Aprenderás a crear aplicaciones web dinámicas y escalables con React"
+      }
+    ]
+  },
+  "emailSequence": [
+    {
+      "subject": "Bienvenido al curso",
+      "body": "Gracias por unirte al curso. Estoy emocionado de que estés aquí. ¡Comencemos a aprender!"
+    },
+    {
+      "subject": "Lección 1: Introducción a React",
+      "body": "La lección 1 está disponible. Aprende a crear componentes reutilizables y a manejar el estado."
+    },
+    {
+      "subject": "Lección 2: Componentes y JSX",
+      "body": "La lección 2 está disponible. Aprende a crear componentes y a utilizar JSX."
+    },
+    {
+      "subject": "Lección 3: Estado y ciclo de vida",
+      "body": "La lección 3 está disponible. Aprende a manejar el estado y el ciclo de vida de los componentes."
+    }
+  ]
+}

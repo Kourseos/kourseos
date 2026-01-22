@@ -1,0 +1,222 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id             String       @id @default(uuid())
+  email          String       @unique
+  password       String
+  name           String?
+  role           String       @default("STUDENT")
+  plan           String       @default("FREE")
+  planStartDate  DateTime?
+  planEndDate    DateTime?
+  stripeCustomerId String?
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+  coursesCreated Course[]     @relation("CreatedCourses")
+  enrollments    Enrollment[]
+  progress       UserProgress[]
+  payments       Payment[]
+  quizAttempts   QuizAttempt[]
+  certificates   Certificate[]
+  apiKeys        ApiKey[]
+  withdrawals    Withdrawal[]
+}
+
+model Course {
+  id          String       @id @default(uuid())
+  title       String
+  description String?
+  published   Boolean      @default(false)
+  creatorId   String
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  creator     User         @relation("CreatedCourses", fields: [creatorId], references: [id])
+  enrollments Enrollment[]
+  modules     Module[]
+  certificates Certificate[]
+  optimizationSuggestions OptimizationSuggestion[]
+  landingPage String?      // Estructura de alta conversión (JSON string)
+  emailSequence String?    // Secuencia de emails (JSON string)
+  price       Float?       @default(0)
+  sales       Sale[]
+  affiliateLinks AffiliateLink[]
+  currency    String?      @default("USD")
+  paymentType String?      @default("ONE_TIME") // ONE_TIME o SUBSCRIPTION
+}
+
+model Module {
+  id       String   @id @default(uuid())
+  title    String
+  order    Int
+  courseId String
+  lessons  Lesson[]
+  quiz     Quiz?
+  course   Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+}
+
+model Lesson {
+  id          String         @id @default(uuid())
+  title       String
+  content     String?
+  concept     String?
+  explanation String?
+  action      String?
+  order       Int
+  moduleId    String
+  module      Module         @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+  progress    UserProgress[]
+}
+
+model Quiz {
+  id        String     @id @default(uuid())
+  title     String
+  moduleId  String     @unique
+  module    Module     @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+  questions Question[]
+  attempts  QuizAttempt[]
+}
+
+model Question {
+  id            String   @id @default(uuid())
+  text          String
+  options       String   // JSON string of options array
+  correctAnswer Int      // Index of the correct option
+  quizId        String
+  quiz          Quiz     @relation(fields: [quizId], references: [id], onDelete: Cascade)
+}
+
+model UserProgress {
+  id          String   @id @default(uuid())
+  userId      String
+  lessonId    String
+  completed   Boolean  @default(false)
+  completedAt DateTime @default(now())
+  user        User     @relation(fields: [userId], references: [id])
+  lesson      Lesson   @relation(fields: [lessonId], references: [id])
+
+  @@unique([userId, lessonId])
+}
+
+model Enrollment {
+  id         String   @id @default(uuid())
+  userId     String
+  courseId   String
+  enrolledAt DateTime @default(now())
+  course     Course   @relation(fields: [courseId], references: [id])
+  user       User     @relation(fields: [userId], references: [id])
+
+  @@unique([userId, courseId])
+}
+
+// Role values: CREATOR, STUDENT, ADMIN
+// Plan values: FREE, BASICO, DESPEGA, CRECE, PLUS, ENTERPRISE
+
+model Payment {
+  id              String   @id @default(uuid())
+  userId          String
+  amount          Float
+  currency        String   @default("USD")
+  plan            String
+  status          String   // "pending", "completed", "failed"
+  stripePaymentId String?
+  createdAt       DateTime @default(now())
+  user            User     @relation(fields: [userId], references: [id])
+}
+
+model QuizAttempt {
+  id        String   @id @default(uuid())
+  userId    String
+  quizId    String
+  score     Int
+  passed    Boolean
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id])
+  quiz      Quiz     @relation(fields: [quizId], references: [id])
+}
+
+model Certificate {
+  id             String   @id @default(uuid())
+  userId         String
+  courseId       String
+  blockchainHash String   @unique
+  issuedAt       DateTime @default(now())
+  user           User     @relation(fields: [userId], references: [id])
+  course         Course   @relation(fields: [courseId], references: [id])
+
+  @@unique([userId, courseId])
+}
+
+model OptimizationSuggestion {
+  id          String   @id @default(uuid())
+  courseId    String
+  course      Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  type        String   // "CONTENT_GAP", "CONFUSING_EXPLANATION", "TYPO"
+  suggestion  String
+  context     String?  // The user query that triggered it
+  resolved    Boolean  @default(false)
+  createdAt   DateTime @default(now())
+}
+
+model Coupon {
+  id          String   @id @default(uuid())
+  code        String   @unique
+  discount    Float    // Porcentaje de descuento (ej: 20)
+  active      Boolean  @default(true)
+  expiresAt   DateTime?
+  usageCount  Int      @default(0)
+  createdAt   DateTime @default(now())
+}
+
+model Sale {
+  id          String   @id @default(uuid())
+  courseId    String
+  course      Course   @relation(fields: [courseId], references: [id])
+  studentEmail String
+  amount      Float
+  paymentType String
+  discount    Float    @default(0)
+  platformFee Float    @default(0) // Ganancia para el dueño del SaaS (ej: 10%)
+  affiliateId String?  // ID del afiliado que generó la venta
+  commission  Float?   // Comisión para el afiliado
+  createdAt   DateTime @default(now())
+}
+
+model Withdrawal {
+  id          String   @id @default(uuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  amount      Float
+  status      String   @default("PENDING") // PENDING, COMPLETED, REJECTED
+  method      String   // PayPal, Stripe, Bank Transfer
+  details     String   // Email o cuenta de destino
+  createdAt   DateTime @default(now())
+  processedAt DateTime?
+}
+
+model AffiliateLink {
+  id          String   @id @default(uuid())
+  code        String   @unique
+  affiliateId String   // ID del usuario que es afiliado
+  courseId    String
+  course      Course   @relation(fields: [courseId], references: [id])
+  commissionRate Float // Porcentaje de comisión (ej: 20%)
+  clicks      Int      @default(0)
+  createdAt   DateTime @default(now())
+}
+
+model ApiKey {
+  id        String   @id @default(uuid())
+  key       String   @unique
+  name      String
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  lastUsed  DateTime?
+}
